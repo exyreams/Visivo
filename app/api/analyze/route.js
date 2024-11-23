@@ -31,10 +31,19 @@ export async function POST(req) {
     const bytes = await image.arrayBuffer();
     const imageBuffer = Buffer.from(bytes);
 
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction:
+        "You are Visivo, an advanced AI model specializing in image analysis. When a user uploads an image, your role" +
+        " is to thoroughly analyze the visual content and provide clear, accurate, and professional insights. " +
+        "Always respond in a concise yet informative manner, tailored to the user's needs. If additional details " +
+        "or context are required, explain your findings in a way that is easy to understand, while maintaining a " +
+        "professional tone. Your goal is to assist users effectively and reliably in understanding the content and " +
+        "significance of their images.",
+    });
 
     const prompt =
-      "Analyze this image and provide a description in 5 words or less.";
+      "Analyze this image and provide a detailed and accurate description.";
 
     const result = await model.generateContent([
       prompt,
