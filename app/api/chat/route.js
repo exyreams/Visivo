@@ -1,33 +1,49 @@
-import { NextResponse } from "next/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY2);
 
 export async function POST(req) {
   try {
-    const { messages } = await req.json();
-
+    const { message, fileData } = await req.json();
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
-    const chat = model.startChat({
-      history: messages.slice(0, -1).map((msg) => ({
-        role: msg.role,
-        parts: msg.content,
-      })),
+    const content = [{ text: message }];
+
+    // If file is provided, add file handling logic
+    if (fileData) {
+      content.unshift({
+        inlineData: {
+          mimeType: fileData.mimeType,
+          data: fileData.data,
+        },
+      });
+    }
+
+    // Use streaming for faster response
+    const result = await model.generateContentStream(content);
+
+    // Create a ReadableStream to send chunks back to the client
+    const stream = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of result.stream) {
+          const chunkText = chunk.text();
+          controller.enqueue(chunkText);
+        }
+        controller.close();
+      },
     });
 
-    const result = await chat.sendMessage(
-      messages[messages.length - 1].content,
-    );
-    const response = await result.response;
-    const text = response.text();
-
-    return NextResponse.json({ response: text });
+    return new Response(stream, {
+      headers: {
+        "Content-Type": "text/plain",
+        "Transfer-Encoding": "chunked",
+      },
+    });
   } catch (error) {
     console.error("Chat API Error:", error);
-    return NextResponse.json(
-      { error: "Failed to process chat request" },
-      { status: 500 },
+    return new Response(
+      JSON.stringify({ error: "Failed to process request" }),
+      { status: 500, headers: { "Content-Type": "application/json" } },
     );
   }
 }
