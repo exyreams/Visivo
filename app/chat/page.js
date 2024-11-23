@@ -185,7 +185,7 @@ export default function ChatPage() {
             </h1>
             <div className="absolute -inset-1 -z-10 rounded-lg bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 opacity-20 blur"></div>
           </div>
-          <p className="animate-fade-in text-sm mx-auto mb-4 text-center text-gray-400 delay-100">
+          <p className="animate-fade-in mx-auto mb-4 text-center text-sm text-gray-400 delay-100">
             Experience the power of AI vision—upload your documents, music, or
             videos, and engage in dynamic conversations with it using Visivo
             Chat.
@@ -229,6 +229,7 @@ export default function ChatPage() {
                         {message.file &&
                         message.file.type &&
                         message.file.type.startsWith("image/") ? (
+                          // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={generateFilePreview(message.file)}
                             alt="File preview"
@@ -265,6 +266,7 @@ export default function ChatPage() {
               {/* File preview details */}
               <div className="flex items-center space-x-3">
                 {selectedFile.type.startsWith("image/") ? (
+                  // eslint-disable-next-line @next/next/no-img-element
                   <img
                     src={generateFilePreview(selectedFile)}
                     alt="File preview"
@@ -359,7 +361,7 @@ export default function ChatPage() {
           )}
         </>
       ) : (
-        <div className="text-center border border-gray-700/50 bg-gray-800/30 p-4 text-red-300 rounded-xl">
+        <div className="rounded-xl border border-gray-700/50 bg-gray-800/30 p-4 text-center text-red-300">
           <p className="mb-4 text-xl font-semibold text-blue-300">
             Please sign in to access Visivo chat and utilize its features.
           </p>
