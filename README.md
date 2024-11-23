@@ -4,6 +4,8 @@ Visivo is an advanced AI-powered application that combines visual analysis with 
 accessible and interactive experience. The application allows users to upload images for analysis and receive detailed
 descriptions with optional realistic speech audio playback and download capabilities.
 
+## Demo :
+
 ## Features
 
 - **Multiple Image Upload**: Users can upload up to 3 images at once.
@@ -14,6 +16,9 @@ descriptions with optional realistic speech audio playback and download capabili
 - **Audio Playback Controls**: Users can play, pause, and seek through the audio description.
 - **Audio Download**: Option to download the generated audio file for offline use.
 - **User Authentication**: Secure access to features through user authentication.
+- **Multi-Format File Processing**: Supports analysis of various file types, including documents, audio, video, and
+  images, with tailored insights for each format.
+- **Chat-Interface**: Chat with you files, either documents, music or video files.
 
 ## Project Workflow
 
