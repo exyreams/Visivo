@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "standard",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "tailwindcss"
+  ],
+  "rules": {
+    "tailwindcss/classnames-order": [
+      "warn",
+      {
+        "officialSorting": true
+      }
+    ],
+    "tailwindcss/enforces-shorthand": "off",
+    "tailwindcss/no-custom-classname": "off"
+  }
+}
