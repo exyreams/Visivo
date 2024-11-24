@@ -6,6 +6,10 @@ descriptions with optional realistic speech audio playback and download capabili
 
 ### Demo : [**Vercel**](https://visivo.vercel.app/)
 > Speech synthesis doesn't work on deployed version. test it locally.
+
+[visivo.webm](https://github.com/user-attachments/assets/49788b6d-df89-427a-9e38-9b2a49dd1d30)
+
+
 ## Features
 
 - **Multiple Image Upload**: Users can upload up to 3 images at once.
