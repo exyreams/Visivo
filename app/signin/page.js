@@ -116,7 +116,7 @@ export default function SignInPage() {
               variants={itemVariants}
               className="mb-12 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-center text-4xl font-bold text-transparent"
             >
-              Visivo Capabilities
+              Features
             </motion.h2>
             <motion.div className="space-y-8">
               {features.map((feature) => (
@@ -191,7 +191,7 @@ export default function SignInPage() {
     );
   }
 
-  // Original sign-in page
+  // sign-in page
   return (
     <motion.div
       initial={{ opacity: 0 }}
