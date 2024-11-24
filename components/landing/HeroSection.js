@@ -58,7 +58,7 @@ export default function HeroSection() {
                 Try Demo
               </button>
             </Link>
-            <button className="rounded-lg border border-blue-500/30 px-8 py-3 transition-all duration-300 hover:scale-105 hover:bg-blue-600/10">
+            <button className="rounded-lg border border-purple-500/40 bg-purple-600/40 px-8 py-3 text-purple-300 transition-all hover:scale-105 hover:bg-purple-600/50">
               Learn More
             </button>
           </motion.div>
