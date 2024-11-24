@@ -5,7 +5,7 @@ accessible and interactive experience. The application allows users to upload im
 descriptions with optional realistic speech audio playback and download capabilities.
 
 ### Demo : [**Vercel**](https://visivo.vercel.app/)
-
+> Speech synthesis doesn't work on deployed version. test it locally.
 ## Features
 
 - **Multiple Image Upload**: Users can upload up to 3 images at once.
