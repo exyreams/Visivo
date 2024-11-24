@@ -4,7 +4,7 @@ Visivo is an advanced AI-powered application that combines visual analysis with 
 accessible and interactive experience. The application allows users to upload images for analysis and receive detailed
 descriptions with optional realistic speech audio playback and download capabilities.
 
-## Demo : [**Vercel**](https://visivo.vercel.app/) | [**Netlify**](https://viisivo.netlify.app/)
+### Demo : [**Vercel**](https://visivo.vercel.app/)
 
 ## Features
 
