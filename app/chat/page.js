@@ -3,6 +3,10 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiFile, FiSend, FiTrash2, FiUpload, FiUser } from "react-icons/fi";
+import { FaFileUpload, FaShieldAlt } from "react-icons/fa";
+import { RiAiGenerate } from "react-icons/ri";
+import { MdTranslate } from "react-icons/md";
+
 import { toast } from "sonner";
 import { marked } from "marked";
 import logo from "@/assets/logo.png";
@@ -167,6 +171,65 @@ export default function ChatPage() {
       setIsLoading(false);
       setSelectedFile(null);
     }
+  };
+
+  const features = [
+    {
+      id: "1",
+      icon: <FaFileUpload className="text-blue-400" />,
+      title: "Multi-Format File Upload",
+      color: "purple-300",
+      description:
+        "Seamlessly upload and analyze documents, images, PDFs, and audio files with ease",
+    },
+    {
+      id: "2",
+      icon: <RiAiGenerate className="text-purple-400" />,
+      title: "Intelligent File Analysis",
+      color: "blue-300",
+      description:
+        "Advanced AI-powered insights extraction across various file types and formats",
+    },
+    {
+      id: "3",
+      icon: <MdTranslate className="text-green-400" />,
+      title: "Contextual AI Interaction",
+      color: "blue-300",
+      description:
+        "Natural language understanding and intelligent response generation",
+    },
+    {
+      id: "4",
+      icon: <FaShieldAlt className="text-red-400" />,
+      title: "Secure File Processing",
+      color: "red-300",
+      description: "End-to-end encryption and privacy-first file handling",
+    },
+  ];
+
+  // Framer Motion animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.2,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
   };
 
   return (
@@ -361,15 +424,47 @@ export default function ChatPage() {
           )}
         </>
       ) : (
-        <div className="rounded-xl border border-gray-700/50 bg-gray-800/30 p-4 text-center text-red-300">
-          <p className="mb-4 text-xl font-semibold text-blue-300">
-            Please sign in to access Visivo chat and utilize its features.
-          </p>
-          <Link href="/signin">
-            <button className="rounded-lg border border-blue-500/20 bg-blue-600/20 px-8 py-3 text-blue-300 transition-all hover:scale-105 hover:bg-blue-600/30">
-              Signin
-            </button>
-          </Link>
+        <div className="rounded-xl border border-gray-700/50 bg-gray-800/30 p-6 text-center text-red-300">
+          <h2 className="mb-8 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-center text-5xl font-bold text-transparent">
+            Visivo Chat
+          </h2>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className="grid grid-cols-2 gap-4 mb-6"
+          >
+            {features.map((feature) => (
+              <motion.div
+                key={feature.id}
+                variants={itemVariants}
+                className="flex items-center space-x-4 rounded-xl border border-white/10 bg-white/5 p-4
+                backdrop-blur-md transition-all duration-300 hover:border-blue-500/30"
+              >
+                <div className="text-3xl">{feature.icon}</div>
+                <div>
+                  <h3
+                    className={`text-${feature.color} text-start text-lg font-semibold`}
+                  >
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="p-4 rounded-xl border border-gray-700/50 bg-gray-800/30">
+            <p className="mb-4 text-xl font-semibold text-blue-300">
+              Please sign in to access Visivo chat and utilize its features.
+            </p>
+
+            <Link href="/signin">
+              <button className="rounded-lg border border-blue-500/20 bg-blue-600/20 px-8 py-3 text-blue-300 transition-all hover:scale-105 hover:bg-blue-600/30">
+                Sign In
+              </button>
+            </Link>
+          </div>
         </div>
       )}
     </div>
