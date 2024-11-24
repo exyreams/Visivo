@@ -432,7 +432,7 @@ export default function ChatPage() {
             initial="hidden"
             animate="visible"
             variants={containerVariants}
-            className="grid grid-cols-2 gap-4 mb-6"
+            className="mb-6 grid grid-cols-2 gap-4"
           >
             {features.map((feature) => (
               <motion.div
@@ -448,13 +448,13 @@ export default function ChatPage() {
                   >
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 text-sm">{feature.description}</p>
+                  <p className="text-sm text-gray-400">{feature.description}</p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="p-4 rounded-xl border border-gray-700/50 bg-gray-800/30">
+          <div className="rounded-xl border border-gray-700/50 bg-gray-800/30 p-4">
             <p className="mb-4 text-xl font-semibold text-blue-300">
               Please sign in to access Visivo chat and utilize its features.
             </p>

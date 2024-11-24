@@ -170,7 +170,7 @@ export default function SignInPage() {
                   whileTap={{ scale: 0.95 }}
                   className="flex w-full items-center justify-center rounded-lg border border-blue-500/20 bg-blue-600/20 px-4 py-3 text-blue-300 backdrop-blur-md transition-all hover:brightness-125"
                 >
-                  <FaSearch className="text-xl mr-4" />
+                  <FaSearch className="mr-4 text-xl" />
                   Analyze Images
                 </motion.button>
               </Link>
@@ -180,7 +180,7 @@ export default function SignInPage() {
                   whileTap={{ scale: 0.95 }}
                   className="flex w-full items-center justify-center rounded-lg border border-purple-500/20 bg-purple-600/20 px-4 py-3 text-purple-300 backdrop-blur-md transition-all hover:brightness-125"
                 >
-                  <IoMdChatbubbles className="text-xl mr-4" />
+                  <IoMdChatbubbles className="mr-4 text-xl" />
                   Chat with files
                 </motion.button>
               </Link>
