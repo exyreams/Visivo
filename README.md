@@ -5,6 +5,7 @@ accessible and interactive experience. The application allows users to upload im
 descriptions with optional realistic speech audio playback and download capabilities.
 
 ### Demo : [**Vercel**](https://visivo.vercel.app/)
+> [!CAUTION]
 > Speech synthesis doesn't work on deployed version. test it locally.
 
 [visivo.webm](https://github.com/user-attachments/assets/49788b6d-df89-427a-9e38-9b2a49dd1d30)
