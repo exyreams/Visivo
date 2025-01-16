@@ -60,8 +60,8 @@ export async function POST(req) {
 
     if (action === "synthesize") {
       const speechConfig = sdk.SpeechConfig.fromSubscription(
-        process.env.AZURE_SPEECH_KEY,
-        process.env.AZURE_SPEECH_REGION,
+        process.env.NEXT_PUBLIC_AZURE_SPEECH_KEY,
+        process.env.NEXT_PUBLIC_AZURE_SPEECH_REGION,
       );
       speechConfig.speechSynthesisLanguage = "en-US";
       speechConfig.speechSynthesisVoiceName =
